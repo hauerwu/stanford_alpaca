@@ -1,3 +1,4 @@
+export ACCELERATE_TORCH_DEVICE=cpu
 python3 train.py \
     --model_name_or_path "facebook/opt-6.7b" \
     --data_path ./alpaca_data.json \
@@ -16,6 +17,7 @@ python3 train.py \
     --warmup_ratio 0.03 \
     --lr_scheduler_type "cosine" \
     --logging_steps 1 \
-    --fsdp "full_shard auto_wrap" \
-    --fsdp_transformer_layer_cls_to_wrap 'OPTDecoderLayer' \
     --tf32 False
+
+    # --fsdp "full_shard auto_wrap" \
+    # --fsdp_transformer_layer_cls_to_wrap 'OPTDecoderLayer' \
